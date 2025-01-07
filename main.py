@@ -4,13 +4,12 @@ def count_words(text):
 
 def count_chars(text):
     chars = {}
-    words = text.lower().split()
-    for word in words:
-        for char in word:
-            if char in chars:
-                chars[char] += 1
-            else:
-                chars[char] = 1
+    for char in text:
+        lowered = char.lower()
+        if lowered in chars:
+            chars[lowered] += 1
+        else:
+            chars[lowered] = 1
     return chars
 
 def read_book_from_file(path):
@@ -22,6 +21,6 @@ def main():
     book = read_book_from_file(book_path)
     #print(book)
     print(f"There are {count_words(book)} words.")
-    print(f"TEST: {count_chars(book)}")
+    print(f"CHARS: {count_chars(book)}")
 
 main()
